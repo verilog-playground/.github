@@ -20,4 +20,6 @@ Website: https://verilog-playground.github.io
 
 ## How it Works?
 
+The front-end uses [React](https://react.dev) and was created using [create-react-app](https://create-react-app.dev). It is hosted on [GitHub Pages](https://pages.github.com).
+
 The simulation itself runs client-side. After the user submits the code, a Lambda function is triggered by API Gateway to start the transpilation process. This process first converts the Verilog/SystemVerilog code to C++ using [Verilator](https://www.veripool.org/verilator), and then converts the C++ code to JavaScript using [Emscripten](https://emscripten.org). With the resulting JavaScript code in hand, the browser uses the `eval` function to interact with the simulation. The user receives logs about the process in real time, thanks to a WebSocket connection between the browser and the API Gateway.
